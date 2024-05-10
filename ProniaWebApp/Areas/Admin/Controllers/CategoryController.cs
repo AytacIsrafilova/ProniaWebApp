@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Pronia.Business.Services.Abstracts;
 using ProniaWebApp.DAL;
 using ProniaWebApp.Models;
 
