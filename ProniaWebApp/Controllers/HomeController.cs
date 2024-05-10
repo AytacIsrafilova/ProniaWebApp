@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProniaWebApp.DAL;
 using ProniaWebApp.Models;
+using ProniaWebApp.ViewModel;
 using System.Diagnostics;
 
 namespace ProniaWebApp.Controllers
@@ -17,9 +18,14 @@ namespace ProniaWebApp.Controllers
 
 
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            List<Product>products=await _dbContext.Products.Include(x=>x.ProductPhotos).Where(x=>x.ProductPhotos.Count>0).ToListAsync();
+            List<Product>products= _dbContext.Products.Include(x=>x.ProductPhotos).Where(x=>x.ProductPhotos.Count>0).ToList();
+            HomeVM homeVM = new HomeVM()
+            {
+                Products = products,
+                Sliders=_dbContext.Sliders.ToList(),
+            };
 
 
             return View(products);

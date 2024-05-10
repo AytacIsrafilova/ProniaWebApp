@@ -4,6 +4,11 @@
 @{
     int count = 0;
 }
+
+<h1>Categories
+    <a class="btn btn-primary" asp-action="Create">Create </a>
+
+</h1>
 <div class="container">
     <table class="table">
   <thead>
@@ -23,7 +28,7 @@
               <td>@item.Id</td>
               <td>@item.Name</td>
               <td>@item.Products.Count</td>
-              <td><a class="btn btn-primary" asp-action="Update" asp-controller="Category" asp-route-id="@item.Id">Update</a></td>
+              <td><a class="btn btn-warning" asp-action="Update" asp-controller="Category" asp-route-id="@item.Id">Update</a></td>
               <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id">Delete</a></td>
 
             </tr>
